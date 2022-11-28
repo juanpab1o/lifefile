@@ -5,7 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <div class="row">
                     <div class="col fw-bold text-uppercase">
                         {{\Carbon\Carbon::now()->format('m/d/Y h:i A')}}
@@ -15,18 +20,12 @@
                     </div>
                     </div>
                 </div>
+               {{-- <div class="card-body">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                </div>
+                </div>--}}
             </div>
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 mt-2 border-bottom"></div>
-            <div class="col text-end mt-2">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-1 pb-2 mb-2 mt-2 border-bottom"></div>
+            <div class="col text-end mt-3">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 New employee
@@ -37,15 +36,15 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">AGREGAR EMPLEADO</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             ...
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCELAR </button>
+                            <button type="button" class="btn btn-success">GUARDAR</button>
                         </div>
                     </div>
                 </div>
